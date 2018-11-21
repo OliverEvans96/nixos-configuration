@@ -11,6 +11,7 @@
       ./boot.nix
       ./packages.nix
       ./gui.nix
+      ./audio.nix
     ];
 
   networking.hostName = "oliver-nixos"; # Define your hostname.
@@ -37,10 +38,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
 
   # List services that you want to enable:
   services = {
