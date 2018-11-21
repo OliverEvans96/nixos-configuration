@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./gui.nix
     ];
 
   boot = {
@@ -48,7 +49,7 @@
     enable = true;
     enableCompletion = true;
   };
-     
+
   # programs.mtr.enable = true;
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
   # Enable the OpenSSH daemon.
@@ -64,36 +65,12 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-
   # List services that you want to enable:
   services = {
     # Enable CUPS to print documents.
     printing.enable = true;
 
-    # Enable the X11 windowing system.
-    xserver = {
-      # Enable X11
-      enable = true;
-      layout = "us";
-      #
-      # Disable standard DMs/xterm
-      desktopManager = {
-        default = "none";
-        xterm.enable = false;
-      };
 
-      # Enable i3
-      windowManager.default = "i3";
-      windowManager.i3.enable = true;
-
-      displayManager.sessionCommands = ''
-        ${pkgs.rxvt_unicode}/bin/urxvtd -q -o -f
-        ${pkgs.emacs}/bin/emacs --daemon
-      '';
-
-      # Enable touchpad support.
-      libinput.enable = true;
-    };
 
     logind.extraConfig = ''
         HandleLidSwitch=ignore
