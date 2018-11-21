@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./packages.nix
       ./gui.nix
     ];
 
@@ -35,12 +36,6 @@
 
   # Set your time zone.
   time.timeZone = "America/New_York";
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    wget vim i3 git firefox thunderbird feh rxvt_unicode emacs keepass zotero taskwarrior htop tmux conda julia zsh psmisc tree gnumake gfortran binutils
-  ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
