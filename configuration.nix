@@ -94,6 +94,11 @@
       # Enable touchpad support.
       libinput.enable = true;
     };
+
+    logind.extraConfig = ''
+        HandleLidSwitch=ignore
+        HandlePowerKey=suspend
+    '';
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
